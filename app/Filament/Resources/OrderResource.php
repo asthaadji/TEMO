@@ -35,7 +35,7 @@ class OrderResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('invoice_number')->searchable(),
-                Tables\Columns\TextColumn::make('user.name')->label('Customer')->searchable(),
+                Tables\Columns\TextColumn::make('user.name')->label('Customer')->searchable()->default('User Dihapus atau Belum ada')->placeholder('N/A'),
                 Tables\Columns\TextColumn::make('total_amount')->money('IDR')->sortable(),
                 Tables\Columns\BadgeColumn::make('status')
                     ->colors([
