@@ -17,7 +17,7 @@ use App\Http\Controllers\CheckoutController;
 */
 
 
-Route::get('/dashboard', function () {
+Route::get('/', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -36,5 +36,7 @@ Route::get('/', [PageController::class, 'landing'])->name('landing');
 // Daftar Produk/Layanan
 Route::get('/layanan', [PageController::class, 'products'])->name('products.index');
 Route::get('/layanan/{product}', [PageController::class, 'productDetail'])->name('products.show');
+
+Route::get('/produk/{product}', [PageController::class, 'show'])->name('products.show');
 
 require __DIR__.'/auth.php';

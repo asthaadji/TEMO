@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class OrderItem extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'order_id',
+        'product_id',
+        'service_date', // <-- UBAH INI
+        'price',
+    ];
+
+    protected $casts = [
+        'service_date' => 'date', // <-- TAMBAHKAN INI
+    ];
 }
