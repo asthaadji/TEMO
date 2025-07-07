@@ -11,11 +11,11 @@ class OrderItem extends Model
     protected $fillable = [
         'order_id',
         'product_id',
-        'service_date', // <-- UBAH INI
+        'service_date',
         'price',
     ];
 
     protected $casts = [
-        'service_date' => 'date', // <-- TAMBAHKAN INI
+        'service_date' => 'date', 
     ];
 }

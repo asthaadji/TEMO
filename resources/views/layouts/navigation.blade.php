@@ -19,39 +19,46 @@
                     <ul class="list-reset lg:flex justify-end flex-1 items-center">
                         
                         <li class="mr-3">
-                            <a class="nav-link inline-block py-2 px-4 text-black no-underline" href="/#home">Home</a>
+                            <a class="nav-link inline-block py-2 px-4 text-black no-underline hover:scale-105 duration-300 ease-in-out" href="/#home">Home</a>
                         </li>
                         <li class="mr-3">
-                            <a class="nav-link inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="/#about">Tentang</a>
+                            <a class="nav-link inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4 hover:scale-105 duration-300 ease-in-out" href="/#about">Tentang</a>
                         </li>
                         <li class="mr-3">
-                            <a class="nav-link inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="/#galery">Galeri</a>
+                            <a class="nav-link inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4 hover:scale-105 duration-300 ease-in-out" href="/#galery">Galeri</a>
                         </li>
                         <li class="mr-3">
-                            <a class="nav-link inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="/#product">Produk</a>
+                            <a class="nav-link inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4hover:scale-105 duration-300 ease-in-out" href="/#product">Produk</a>
                         </li>
                         
                     </ul>
-                    <button id="navAction" class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75"> 
+                    <button id="navAction" class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 hover:scale-105 duration-300 ease-in-out"> 
                             {{-- KODE INI TAMPIL JIKA PENGGUNA SUDAH LOGIN --}}
-                        @auth    
-                            {{-- Tampilkan nama pengguna sebagai link ke halaman profil --}}
-                            <a href="{{ route('profile.edit') }}" >
-                                {{ Auth::user()->name }} {{-- Mengambil nama pengguna yang sedang login --}}
-                            </a>
+                        <div class="mx-auto lg:mx-0">
+                        @auth
+                            {{-- Dropdown Menu Profil --}}
+                            <details class="relative">
+                                <summary class="list-none cursor-pointer inline-block hover:underline ">
+                                    <div class="flex items-center">
+                                        <span>{{ Auth::user()->name }}</span>
+                                        <svg class="h-4 w-4 ml-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                                    </div>
+                                </summary>
+                                <div class="absolute z-10 mt-10 w-48 rounded-md bg-white py-4 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none left-0 lg:left-auto lg:right-0 origin-top-left lg:origin-top-right">
+                                    <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profil Anda</a>
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <a href="{{ route('logout') }}" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onclick="event.preventDefault(); this.closest('form').submit();">Keluar</a>
+                                    </form>
+                                </div>
+                            </details>
                         @else
-                            {{-- KODE INI TAMPIL JIKA PENGGUNA BELUM LOGIN (SEBAGAI TAMU) --}}
-
-                            {{-- Tampilkan tombol Login yang mengarah ke halaman login --}}
-                            <a href="{{ route('login') }}" >
+                            {{-- Tombol Login --}}
+                            <a href="{{ route('login') }}" class="inline-block hover:underline ">
                                 Login
                             </a>
-                            <!-- 
-                            {{-- Opsional: Tambahkan tombol Daftar jika diperlukan --}}
-                            <a href="{{ route('register') }}" class="ml-2 inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-indigo-500 hover:bg-white mt-4 lg:mt-0">
-                                Daftar
-                            </a> -->
                         @endguest
+                        </div>
                     </button>
                 </div>
             </div>
