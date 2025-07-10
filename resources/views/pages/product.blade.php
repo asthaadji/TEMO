@@ -29,9 +29,12 @@
                         Rp {{ number_format($product->price, 0, ',', '.') }}
                     </p>
 
-                    <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transform transition hover:scale-105 duration-300 ease-in-out">
-                        Tambah ke Keranjang
-                    </button>
+                    <form action="{{ route('cart.add', $product) }}" method="POST">
+                        @csrf
+                        <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transform transition hover:scale-105 duration-300 ease-in-out">
+                            Tambah ke Keranjang
+                        </button>
+                    </form>
                 </div>
             </div>
 
