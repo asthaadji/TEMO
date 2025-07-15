@@ -21,7 +21,17 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+
+                // --- INI BAGIAN YANG DIUBAH ---
+
+                // Cek apakah pengguna yang login adalah admin
+                if (Auth::user()->is_admin) {
+                    // Jika admin, arahkan ke dashboard admin
+                    return redirect()->route('filament.admin.pages.dashboard');
+                }
+
+                // Jika bukan admin (user biasa), arahkan ke halaman utama/landing page
+                return redirect('/'); 
             }
         }
 

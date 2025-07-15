@@ -2,7 +2,7 @@
 
 @extends('layouts.app')
 
-<section class="py-12 pt-24 ">
+<section class="py-12 pt-24 h-screen">
     <div class="container mx-auto px-4">
         <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-white">
             {{ $product->name }}
@@ -29,10 +29,32 @@
                         Rp {{ number_format($product->price, 0, ',', '.') }}
                     </p>
 
-                    <form action="{{ route('cart.add', $product) }}" method="POST">
+                    <form action="{{ route('pemesanan.mulai', $product->id) }}" method="POST">
                         @csrf
+
+                        {{-- Input Tanggal --}}
+                        <div class="mb-4">
+                            <label for="tanggal_pemesanan" class="block text-gray-700 text-sm font-bold mb-2">
+                                Pilih Tanggal Pemesanan:
+                            </label>
+                            <input type="date" id="tanggal_pemesanan" name="tanggal_pemesanan" 
+                                   class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                   value="{{ old('tanggal_pemesanan') }}" required>
+                        </div>
+                        
+                        {{-- Menampilkan Error Validasi --}}
+                        @if ($errors->any())
+                            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
                         <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transform transition hover:scale-105 duration-300 ease-in-out">
-                            Tambah ke Keranjang
+                            Pesan Produk Ini
                         </button>
                     </form>
                 </div>

@@ -17,7 +17,7 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="leading-normal tracking-normal text-white gradient" style="font-family: 'Source Sans Pro', sans-serif;">
+    <body class="leading-normal tracking-normal text-white gradient flex flex-col min-h-screen" style="font-family: 'Source Sans Pro', sans-serif;">
         <!-- <div class="min-h-screen bg-gray-100 dark:bg-gray-900"> -->
             @include('layouts.navigation')
 
@@ -32,7 +32,7 @@
             
         
             <!-- Page Content -->
-            <main>
+            <main class="flex-grow">
                  @yield('content')               
             </main>
         </div>
@@ -55,55 +55,40 @@
                     </a>
                 </div>
                 <div class="flex-1">
-                    <p class="uppercase text-gray-500 md:mb-6">Links</p>
+                    
+                </div>
+                <div class="flex-1">
+                    
+                </div>
+                <div class="flex-1">
+                    <p class="uppercase text-gray-500 md:mb-6">Sosial</p>
                     <ul class="list-reset mb-6">
                     <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                        <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">FAQ</a>
+                        <a href="https://www.instagram.com/temograph/" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Instagram</a>
                     </li>
                     <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                        <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Help</a>
-                    </li>
-                    <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                        <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Support</a>
+                        <a href="https://www.tiktok.com/@temograph" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Tiktok</a>
                     </li>
                     </ul>
                 </div>
                 <div class="flex-1">
-                    <p class="uppercase text-gray-500 md:mb-6">Legal</p>
+                    <p class="uppercase text-gray-500 md:mb-6">Kontak</p>
                     <ul class="list-reset mb-6">
-                    <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                        <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Terms</a>
+                    <li class="mt-2 block">
+                        <p class="text-gray-800">
+                            Jl. Pahlawan No. 123, <br>
+                            Kota Semarang, Jawa Tengah, 50241
+                        </p>
                     </li>
                     <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                        <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Privacy</a>
-                    </li>
-                    </ul>
-                </div>
-                <div class="flex-1">
-                    <p class="uppercase text-gray-500 md:mb-6">Social</p>
-                    <ul class="list-reset mb-6">
-                    <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                        <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Facebook</a>
+                        <a href="https://wa.me/6282226418035" target="_blank" rel="noopener noreferrer" class="no-underline hover:underline text-gray-800 hover:text-green-500 flex items-center">                      
+                            <span>0812-3456-7890</span>
+                        </a>
                     </li>
                     <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                        <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Linkedin</a>
-                    </li>
-                    <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                        <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Twitter</a>
-                    </li>
-                    </ul>
-                </div>
-                <div class="flex-1">
-                    <p class="uppercase text-gray-500 md:mb-6">Company</p>
-                    <ul class="list-reset mb-6">
-                    <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                        <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Official Blog</a>
-                    </li>
-                    <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                        <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">About Us</a>
-                    </li>
-                    <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                        <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Contact</a>
+                        <a href="mailto:capturewithtemo@gmail.com" target="_blank" rel="noopener noreferrer" class="no-underline hover:underline text-gray-800 hover:text-green-500 flex items-center">                      
+                            <span>capturewithtemo@gmail.com</span>
+                        </a>
                     </li>
                     </ul>
                 </div>

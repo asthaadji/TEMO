@@ -23,6 +23,7 @@ class User extends Authenticatable implements FilamentUser
         'name',
         'email',
         'password',
+        'is_admin',
     ];
 
     /**
@@ -43,10 +44,23 @@ class User extends Authenticatable implements FilamentUser
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'is_admin' => 'boolean',
     ];
-
     public function canAccessPanel(Panel $panel): bool
     {
-        return $this->is_admin;
+        // Izinkan admin mengakses semua panel
+        if ($this->is_admin) {
+            return true;
+        }
+
+        // Izinkan user biasa hanya mengakses panel 'user'
+        if ($panel->getId() === 'user') {
+            return true;
+        }
+
+        // Tolak akses ke panel lain untuk user biasa
+        return false;
     }
+
+    
 }
